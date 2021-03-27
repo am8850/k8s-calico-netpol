@@ -1,4 +1,4 @@
-# Kubernets Network Policies with Calico
+# Kubernets Network Policies
 
 ## Description
 
