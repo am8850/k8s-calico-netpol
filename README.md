@@ -158,12 +158,25 @@ kubectl exec <API-POD> -it -- curl http://db # pass
 ### Kind cluster with Calico
 
 
-```bash
-kind create cluster --config=config.yml
-```
+File: kind.yaml
 
 ```yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+- role: worker
+networking:
+  disableDefaultCNI: true
+  podSubnet: 192.168.0.0/16
 ```
 
 ```bash
+kind create cluster --config=config.yml
+kubectl -n kube-system set env daemonset/calico-node FELIX_IGNORELOOSERPF=true
 ```
+
+## References
+
+- [Kind Cluster with Calico](https://alexbrand.dev/post/creating-a-kind-cluster-with-calico-networking/)
