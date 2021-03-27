@@ -14,7 +14,7 @@ In this demo, we will create a 3-tier app and setup network policies following t
 
 ## Create a 3-tier app
 
-> Note: we will be using nginx and port 80, but this could be change to use other ports and applications
+> Note: for testability, we will be using nginx and port 80, but this could be changed to use other ports and applications
 
 ```bash
 # Create the app deployments
@@ -23,7 +23,7 @@ kubectl create deployment api --image=nginx:alpine --replicas=3 --port=80
 kubectl create deployment frontend --image=nginx:alpine --replicas=1 --port=80
 
 # Create the app services
-kubectl expose deploy frontend --port=80 --target-port=
+kubectl expose deploy frontend --port=80 --target-port=80
 kubectl expose deploy api --port=80 --target-port=80
 kubectl expose deploy db --port=80 --target-port=80
 ```
