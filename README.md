@@ -74,9 +74,6 @@ spec:
   - {}
   policyTypes:
   - Ingress
-  ports:
-    - protocol: TCP
-      port: 80
 ```
 
 ### Test it
