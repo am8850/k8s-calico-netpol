@@ -28,7 +28,7 @@ kubectl expose deploy api --port=80 --target-port=80
 kubectl expose deploy db --port=80 --target-port=80
 ```
 
-> **Note:** the pods automatica get a label: app=frontend, app=api, app=db which will be used to filter the traffic.
+> **Note:** The pods in the deployment automatically get the labels ```app=frontend```, ```app=api```, and ```app=db``` which will be used to filter the traffic.
 
 ### Test Connectivity
 
