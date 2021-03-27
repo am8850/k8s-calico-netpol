@@ -1,17 +1,14 @@
 # Kubernets Network Policies with Calico
 
-## Setup
+## Description
 
+In this demo, we will create a 3-tier app and setup network policies following the following best practices:
 
-```bash
-kind create cluster --config=config.yml
-```
-
-```yaml
-```
-
-```bash
-```
+- Deny all traffic by default
+- Open all traffic to the frontend only
+  - This could be restricted further to a port and protocl
+- Open traffic between the fronend and the api and between the api and db, but there should not be traffic from the frontend to the db
+  - This could further be restricted by a port and protocl 
 
 ## Create a 3-tier app
 
@@ -137,4 +134,20 @@ kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://
 kubectl exec <FRONTEND-NODE> -it -- curl http://api # pass
 kubectl exec <FRONTEND-NODE> -it -- curl http://db # fail
 kubectl exec <API-NODE> -it -- curl http://db # pass
+```
+
+## Other Configuration
+
+
+### Kind cluster with Calico
+
+
+```bash
+kind create cluster --config=config.yml
+```
+
+```yaml
+```
+
+```bash
 ```
