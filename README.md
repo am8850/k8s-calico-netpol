@@ -44,7 +44,7 @@ kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: default-deny-ingress
+  name: deny-all
 spec:
   podSelector: {}
   policyTypes:
@@ -65,7 +65,7 @@ kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-all-ingress
+  name: allowtofrontend
 spec:
   podSelector:
     matchLabels:
@@ -90,7 +90,7 @@ kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: frontendtoapi
+  name: allowfrontendtoapi
 spec:
   podSelector:
     matchLabels:
@@ -124,7 +124,7 @@ kubectl exec <API-POD> -it -- curl http://db # fail
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: apitodb
+  name: allowapitodb
 spec:
   podSelector:
     matchLabels:
