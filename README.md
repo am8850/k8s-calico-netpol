@@ -38,7 +38,7 @@ kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://
 kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://db -T 2 # pass
 ```
 
-## Block all Traffic
+## Block all traffic to all pods
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -59,7 +59,7 @@ kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://
 kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://db -T 2 # fail
 ```
 
-## Open All traffic to frontend
+## Open all traffic to the frontend pods
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -87,7 +87,7 @@ kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://
 kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://db -T 2 #fail
 ```
 
-## Open traffic between frontend and api
+## Open traffic between the frontend pods and api pods
 
 ```yaml
 kind: NetworkPolicy
@@ -121,7 +121,7 @@ kubectl exec <FRONTEND-POD> -it -- curl http://db # fail
 kubectl exec <API-POD> -it -- curl http://db # should fail
 ```
 
-## Open traffic between api and db
+## Open all traffic between api pods and the db pods
 
 ```yaml
 kind: NetworkPolicy
