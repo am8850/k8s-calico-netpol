@@ -14,7 +14,7 @@ In this demo, we will create a 3-tier app and setup network policies following t
 
 ## Create a 3-tier app
 
-> Note: for testability, we will be using nginx and port 80, but this could be changed to use other ports and applications
+> **Note:** for testability, we will be using nginx and port 80, but this could be changed to use other ports and applications
 
 ```bash
 # Create the app deployments
@@ -28,7 +28,7 @@ kubectl expose deploy api --port=80 --target-port=80
 kubectl expose deploy db --port=80 --target-port=80
 ```
 
-> Notes: the pods automatica get a label: app=frontend, app=api, app=db which will be used to filter the traffic.
+> **Note:** the pods automatica get a label: app=frontend, app=api, app=db which will be used to filter the traffic.
 
 ### Test Connectivity
 
