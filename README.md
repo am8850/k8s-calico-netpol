@@ -10,7 +10,7 @@ In this demo, we will create a 3-tier app and setup network policies following t
 - Open traffic between the fronend and the api and between the api and db, but there should not be traffic from the frontend to the db
   - This could further be restricted by a port and protocl 
 
-![foxdemo](images/)
+![Traffic flow](images/NetPolTrafficFlow.png)
 
 ## Create a 3-tier app
 
