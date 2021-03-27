@@ -115,7 +115,7 @@ kubect get po
 ## Execute the commands below replace the FRONTEND-POD and API-POD with actual POD names
 kubectl exec <FRONTEND-POD> -it -- curl http://api # pass
 kubectl exec <FRONTEND-POD> -it -- curl http://db # fail
-kubectl exec <API-POD> -it -- curl http://db # should fail
+kubectl exec <API-POD> -it -- curl http://db # fail
 ```
 
 ## Open all traffic between api pods and the db pods
