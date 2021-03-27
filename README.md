@@ -110,10 +110,13 @@ kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://
 kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://api -T 2 # fail
 kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://db -T 2 #fail
 
+## Get a list of running pods
+kubect get po
 
-kubectl exec <FRONTEND-NODE> -it -- curl http://api # pass
-kubectl exec <FRONTEND-NODE> -it -- curl http://db # fail
-kubectl exec <API-NODE> -it -- curl http://db # should fail
+## Execute the commands below replace the FRONTEND-POD and API-POD with actual POD names
+kubectl exec <FRONTEND-POD> -it -- curl http://api # pass
+kubectl exec <FRONTEND-POD> -it -- curl http://db # fail
+kubectl exec <API-POD> -it -- curl http://db # should fail
 ```
 
 ## Open traffic between api and db
@@ -141,9 +144,13 @@ kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://
 kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://api -T 2 # fail
 kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- http://db -T 2 # fail
 
-kubectl exec <FRONTEND-NODE> -it -- curl http://api # pass
-kubectl exec <FRONTEND-NODE> -it -- curl http://db # fail
-kubectl exec <API-NODE> -it -- curl http://db # pass
+## Get a list of running pods
+kubect get po
+
+## Execute the commands below replace the FRONTEND-POD and API-POD with actual POD names
+kubectl exec <FRONTEND-POD> -it -- curl http://api # pass
+kubectl exec <FRONTEND-POD> -it -- curl http://db # fail
+kubectl exec <API-POD> -it -- curl http://db # pass
 ```
 
 ## Other Configuration
