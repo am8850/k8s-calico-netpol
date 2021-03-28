@@ -10,9 +10,9 @@ kubectl create ns dev
 # Create a pod and a services
 kubectl run nginx --image=nginx:alpine --restart=Never --port=80 --expose -n dev
 # Access the service from a differente namespace
-k run busybox --image=busybox -it --restart=Never --rm -- /bin/sh
+k run busybox --image=busybox -it --restart=Never --rm -- /bin/sh -n default
 # From inside the pod execute
-wget -O- http://nginx.dev 
+wget -O- http://nginx.dev
 ```
 
 ## Description
