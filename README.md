@@ -14,7 +14,10 @@ kubectl run nginx --image=nginx:alpine --restart=Never --port=80 --expose -n dev
 # Access the service from a differente namespace
 kubectl run busybox --image=busybox -it --restart=Never --rm -- /bin/sh -n default
 
-# From inside the pod execute
+# Cannot accesss the pod from the default namespace
+wget -O- http://nginx
+
+# Can access the pod from the default namespace by further qualifying the URL to include the namespace
 wget -O- http://nginx.dev
 
 ## cleanup
