@@ -15,6 +15,8 @@ k run busybox --image=busybox -it --restart=Never --rm -- /bin/sh -n default
 wget -O- http://nginx.dev
 ```
 
+The solution is to use Network Policies.
+
 ## Description
 
 In this demo, we will create a 3-tier app and setup network policies following the following best practices:
