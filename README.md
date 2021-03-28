@@ -23,9 +23,9 @@ In this demo, we will create a 3-tier app and setup network policies following t
 
 - Deny all traffic by default
 - Open all traffic to the frontend only
-  - This could be restricted further to a port and protocl
+  - This could be restricted further to a port and protocol
 - Open traffic between the fronend and the api and between the api and db, but there should not be traffic from the frontend to the db
-  - This could further be restricted by a port and protocl 
+  - This could further be restricted by a port and protocol 
 
 ![Traffic flow](images/NetPolTrafficFlow.png)
 
