@@ -1,5 +1,20 @@
 # Kubernets Network Policies
 
+## Problem
+
+Many believe that namespace provides network isolation, but this is not the case. Try this:
+
+```bash
+# Create a dev namespace
+kubectl create ns dev
+# Create a pod and a services
+kubectl run nginx --image=nginx:alpine --restart=Never --port=80 --expose -n dev
+# Access the service from a differente namespace
+k run busybox --image=busybox -it --restart=Never --rm -- /bin/sh
+# From inside the pod execute
+wget -O- http://nginx.dev 
+```
+
 ## Description
 
 In this demo, we will create a 3-tier app and setup network policies following the following best practices:
