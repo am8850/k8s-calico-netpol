@@ -12,10 +12,13 @@ kubectl create ns dev
 kubectl run nginx --image=nginx:alpine --restart=Never --port=80 --expose -n dev
 
 # Access the service from a differente namespace
-k run busybox --image=busybox -it --restart=Never --rm -- /bin/sh -n default
+kubectl run busybox --image=busybox -it --restart=Never --rm -- /bin/sh -n default
 
 # From inside the pod execute
 wget -O- http://nginx.dev
+
+## cleanup
+kubectl delete ns/dev
 ```
 
 The solution is to use Network Policies.
