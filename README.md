@@ -2,7 +2,7 @@
 
 ## Problem
 
-Many believe that kubernetes namespaces provides network traffioc isolation, but this is not the case. Try this:
+Many believe that kubernetes namespaces provides network traffic isolation, but this is not the case. Try this:
 
 ```bash
 # Create a dev namespace
@@ -30,17 +30,17 @@ The solution is to use Kubernetes network policies.
 
 ## Description
 
-In this demo, we will create a simple 3-tier demo app and setup network policies following the following best practices:
+In this demo, we will create a simple 3-tier demo app and setup network policies with the following best practices:
 
 - Deny all traffic by default
-- Open all traffic to the frontend only
+- Open all traffic to the frontend pods only
   - This could be restricted further to a port and protocol
-- Open traffic between the fronend and the api and between the api and db, but there should not be traffic from the frontend to the db
+- Open traffic between the fronend pods and the api pods and between the api pods and db pods, but there should not be traffic from the frontend to the db
   - This could further be restricted by a port and protocol 
 
 ![Traffic flow](images/NetPolTrafficFlow.png)
 
-## Create a 3-tier app
+## Create a simpe 3-tier app
 
 > **Note:** for testability, we will be using nginx and port 80, but this could be changed to use other ports and applications
 
