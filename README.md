@@ -8,17 +8,19 @@ Many believe that kubernetes namespaces provides network traffic isolation, but 
 # Create a dev namespace
 kubectl create ns dev
 
-# Create a pod and a services
+# Create a pod and a services in the dev namespace
 kubectl run nginx --image=nginx:alpine --restart=Never --port=80 --expose -n dev
 
-# Access the service from a differente namespace
+# Create a pod to test connectivity in the default namespace
 kubectl run busybox --image=busybox -it --restart=Never --rm -- /bin/sh -n default
 
-# Cannot accesss the pod from the default namespace
+# Inside the busybox container
+This should fail. The service does not exists in the default namespace
 wget -O- http://nginx
 
-# Can access the pod from the default namespace by further qualifying the URL to include the namespace
+# This should pass. By qualifying the service with the namespace, k8s is able to find the service
 wget -O- http://nginx.dev
+exit
 
 ## cleanup
 kubectl delete ns/dev
