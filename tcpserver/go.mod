@@ -1,3 +1,3 @@
-module tcpserver
+module httpserver
 
 go 1.16
