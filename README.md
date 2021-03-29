@@ -2,7 +2,7 @@
 
 ## Problem
 
-Many believe that namespace provides network isolation, but this is not the case. Try this:
+Many believe that kubernetes namespaces provides network traffioc isolation, but this is not the case. Try this:
 
 ```bash
 # Create a dev namespace
@@ -24,11 +24,13 @@ wget -O- http://nginx.dev
 kubectl delete ns/dev
 ```
 
-The solution is to use Network Policies.
+## Solution
+
+The solution is to use Kubernetes network policies.
 
 ## Description
 
-In this demo, we will create a 3-tier app and setup network policies following the following best practices:
+In this demo, we will create a simple 3-tier demo app and setup network policies following the following best practices:
 
 - Deny all traffic by default
 - Open all traffic to the frontend only
