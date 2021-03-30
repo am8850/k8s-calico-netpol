@@ -172,6 +172,9 @@ spec:
     - podSelector:
         matchLabels:
           app: frontend
+    - namespaceSelector:
+        matchLabels:
+          project: default      
     ports:
     - protocol: TCP
       port: 80      
