@@ -26,24 +26,9 @@ exit
 kubectl delete ns/dev
 ```
 
-## Solution
+## Solution: Kubernetes network policies
 
-The solution is to use Kubernetes network policies.
-
-## Description
-
-In this demo, we will create a simple 3-tier demo app and setup network policies with the following best practices:
-
-- Deny all traffic by default
-- Open all traffic to the frontend pods only
-  - This could be restricted further to a port and protocol
-- Open traffic between the fronend pods and the api pods and between the api pods and db pods, but there should not be traffic from the frontend to the db
-  - This could further be restricted by a port and protocol 
-
-![Traffic flow](images/NetPolTrafficFlow.png)
-
-## Kubernetes Network policies
-
+- The solution is to use Kubernetes network policies.
 - Let's review the spec, we can ingress from and egress to:
   - cidr block range
   - amespace selector
@@ -81,6 +66,19 @@ spec:
     - protocol: TCP
       port: 5978
 ```
+
+## Description
+
+In this demo, we will create a simple 3-tier demo app and setup network policies with the following best practices:
+
+- Deny all traffic by default
+- Open all traffic to the frontend pods only
+  - This could be restricted further to a port and protocol
+- Open traffic between the fronend pods and the api pods and between the api pods and db pods, but there should not be traffic from the frontend to the db
+  - This could further be restricted by a port and protocol 
+
+![Traffic flow](images/NetPolTrafficFlow.png)
+
 
 ## Create a simpe 3-tier app
 
