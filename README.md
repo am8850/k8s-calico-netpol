@@ -93,9 +93,9 @@ kubectl create deployment api --image=nginx:alpine --replicas=3 --port=80
 kubectl create deployment frontend --image=nginx:alpine --replicas=1 --port=80
 
 # Create the app services
-kubectl expose deploy frontend --port=80 --target-port=80
+kubectl expose deploy frontend --port=443 --target-port=443
 kubectl expose deploy api --port=80 --target-port=80
-kubectl expose deploy db --port=80 --target-port=80
+kubectl expose deploy db --port=1433 --target-port=1433
 ```
 
 > **Note:** The pods in the deployment automatically get the labels ```app=frontend```, ```app=api```, and ```app=db``` which will be used to filter the traffic.
@@ -172,9 +172,9 @@ spec:
     - podSelector:
         matchLabels:
           app: frontend
-    - namespaceSelector:
-        matchLabels:
-          project: default      
+    ports:
+    - protocol: TCP
+      port: 80      
 ```         
 
 ### Test it
@@ -213,7 +213,10 @@ spec:
           app: api
     - namespaceSelector:
         matchLabels:
-          project: default      
+          project: default
+    ports:
+    - protocol: TCP
+      port: 1433      
 ```          
 
 ### Test it
