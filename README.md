@@ -1,6 +1,6 @@
 # Kubernets Network Policies
 
-## Problem
+## Problem statement
 
 Kubernetes namespaces do not provide network traffic isolation. Try this:
 
