@@ -165,6 +165,8 @@ spec:
   podSelector:
     matchLabels:
       app: api
+  policyTypes:
+  - Ingress
   ingress:
   - from:
     - podSelector:
@@ -202,6 +204,8 @@ spec:
   podSelector:
     matchLabels:
       app: db
+  policyTypes:
+  - Ingress
   ingress:
   - from:
     - podSelector:
