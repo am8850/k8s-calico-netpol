@@ -2,7 +2,7 @@
 
 ## Problem
 
-Many believe that kubernetes namespaces provides network traffic isolation, but this is not the case. Try this:
+Kubernetes namespaces do not provide network traffic isolation. Try this:
 
 ```bash
 # Create a dev namespace
