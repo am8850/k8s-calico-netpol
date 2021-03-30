@@ -44,7 +44,7 @@ In this demo, we will create a simple 3-tier demo app and setup network policies
 
 ## Create a simpe 3-tier app
 
-> **Note:** for testability, we will be using nginx and port 80, but this could be changed to use other ports and applications
+> **Note:** for testability, we will be using nginx and 80, but this could be changed to use other ports and applications.
 
 ```bash
 # Create the app deployments
@@ -187,6 +187,7 @@ kubectl exec <API-POD> -it -- curl http://db # pass
 
 ### Kind cluster with Calico
 
+- For local development, I used a kind cluster with one master and two worker nodes. Also, I installed the Calico networking. I also test the steps above in Azure AKS with Calico network policies and obtained the same results.
 
 File: kind.yaml
 
