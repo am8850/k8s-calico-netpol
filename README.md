@@ -44,8 +44,11 @@ In this demo, we will create a simple 3-tier demo app and setup network policies
 
 ## Kubernetes Network policies
 
-- Let's review the spec:
-- We call ingress traffic based on cidr, namespace name, pod labels and port and protocol
+- Let's review the spec, we can ingress from and egress to:
+  - cidr block range
+  - amespace selector
+  - pod selector
+  - port and protocol
 
 ```yaml
 spec:
