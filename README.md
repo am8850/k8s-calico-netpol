@@ -187,7 +187,7 @@ kubectl exec <API-POD> -it -- curl http://db # pass
 
 ### Kind cluster with Calico
 
-- For local development, I used a kind cluster with one master and two worker nodes. Also, I installed the Calico networking. I also test the steps above in Azure AKS with Calico network policies and obtained the same results.
+- For local development, I used a kind cluster deployed to Docker with one master and two worker nodes. Also, I installed the Calico networking. I also test the steps above in Azure AKS with Calico network policies and obtained the same results.
 
 File: kind.yaml
 
