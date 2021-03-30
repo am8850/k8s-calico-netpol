@@ -42,6 +42,43 @@ In this demo, we will create a simple 3-tier demo app and setup network policies
 
 ![Traffic flow](images/NetPolTrafficFlow.png)
 
+## Kubernetes Network policies
+
+- Let's review the spec:
+- We call ingress traffic based on cidr, namespace name, pod labels and port and protocol
+
+```yaml
+spec:
+  podSelector:
+    matchLabels:
+      role: db
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 172.17.0.0/16
+        except:
+        - 172.17.1.0/24
+    - namespaceSelector:
+        matchLabels:
+          project: myproject
+    - podSelector:
+        matchLabels:
+          role: frontend
+    ports:
+    - protocol: TCP
+      port: 6379
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 10.0.0.0/24
+    ports:
+    - protocol: TCP
+      port: 5978
+```
+
 ## Create a simpe 3-tier app
 
 > **Note:** for testability, we will be using nginx and 80, but this could be changed to use other ports and applications.
@@ -130,6 +167,9 @@ spec:
     - podSelector:
         matchLabels:
           app: frontend
+    - namespaceSelector:
+        matchLabels:
+          project: default      
 ```         
 
 ### Test it
@@ -164,6 +204,9 @@ spec:
     - podSelector:
         matchLabels:
           app: api
+    - namespaceSelector:
+        matchLabels:
+          project: default      
 ```          
 
 ### Test it
