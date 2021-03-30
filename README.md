@@ -15,7 +15,7 @@ kubectl run nginx --image=nginx:alpine --restart=Never --port=80 --expose -n dev
 kubectl run busybox --image=busybox -it --restart=Never --rm -- /bin/sh -n default
 
 # Inside the busybox container
-This should fail. The service does not exists in the default namespace
+# This should fail. The service does not exists in the default namespace
 wget -O- http://nginx
 
 # This should pass. By qualifying the service with the namespace, k8s is able to find the service
